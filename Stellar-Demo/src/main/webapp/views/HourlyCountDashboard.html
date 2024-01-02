@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO Dashboard</title>
+
+    <!-- Bootstrap CSS (link to the CDN) -->
+    <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>
+	<link rel="stylesheet" href=https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .table-responsive {
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        p {
+            color: #6c757d;
+            text-align: center;
+        }
+
+        .selected-country {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Hourly Order Count Dashboard</h1>
+
+        <form id="form_submit" method="post" action="/">
+            <div class="form-group">
+                <label for="selected_date">Select Date:</label>
+                <input type="date" id="selected_date" name="selected_date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Select Country:</label>
+                <select id="country" name="country" class="form-control" required>
+                    <option value="poland">Poland</option>
+                    <option value="belgium">Belgium</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+		 <div class="table-wrap">	
+			<table id="hourlyCountTable" class="display nowrap" style="width:100%">
+        		<thead>
+            		<tr>
+                		<th>Time_Period</th>
+                		<th>Order_Count </th>
+                		<th>Hourly_Grand_Total</th>
+            		</tr>
+        		</thead>
+    		</table>
+		</div>
+        <!--{% if selected_country %}
+            <div class="selected-country">
+                <p>Selected Country: {{ selected_country }}</p>
+            </div>
+        {% endif %}
+
+        {% if table_html %}
+            <div class="table-responsive mt-4">
+                {{ table_html | safe }}
+            </div>
+       
+        {% else %}
+            <p class="mt-4">No data to display.</p>
+        {% endif %}-->
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (links to the CDN) -->
+    <script src=https://code.jquery.com/jquery-3.3.1.min.js></script>
+    <script src=https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js></script>
+    <script src=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js></script>
+	<script src="./javascript/hourlyCountDashboard.js"></script>
+</body>
+
+</html>
